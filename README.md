@@ -1,9 +1,68 @@
-# Linear-Discriminant-Analysis
+# 📊 Linear Discriminant Analysis (LDA)
 
-#### click on the text below for more info
+Dimensionality reduction and multi-class classification using **Linear Discriminant Analysis**, implemented in both Python and R. Uses the UCI Wine dataset to reduce 13 features down to 2 linear discriminants, then classifies wine segments with decision-boundary visualizations.
 
-[Linear discriminant analysis (LDA) is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition and machine learning to find a linear combination of features that characterizes or separates two or more classes of objects or events. The resulting combination may be used as a linear classifier, or, more commonly, for dimensionality reduction before later classification. LDA is closely related to analysis of variance (ANOVA) and regression analysis, which also attempt to express one dependent variable as a linear combination of other features or measurements.[1][2] However, ANOVA uses categorical independent variables and a continuous dependent variable, whereas discriminant analysis has continuous independent variables and a categorical dependent variable (i.e. the class label).[3] Logistic regression and probit regression are more similar to LDA than ANOVA is, as they also explain a categorical variable by the values of continuous independent variables. These other methods are preferable in applications where it is not reasonable to assume that the independent variables are normally distributed, which is a fundamental assumption of the LDA method.](https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/)
+## How It Works
 
-# LDA makes predictions by estimating the probability that a new set of inputs belongs to each class. The class that gets the highest probability is the output class and a prediction is made.
+1. Load the Wine dataset (13 chemical features, 3 customer segments)
+2. Split into 80/20 train/test and apply feature scaling
+3. Apply LDA to project data onto 2 discriminant components
+4. Train a classifier (Logistic Regression in Python, SVM in R)
+5. Visualize decision boundaries for both train and test sets
 
-## In case of Logistic Regression we can only classify between two classes and put the point in one of them , But LDA expands the capabilities .
+## Tech Stack
+
+| | Python | R |
+|---|---|---|
+| **File** | `lda.py` | `lda.R` |
+| **LDA** | `sklearn.discriminant_analysis` | `MASS::lda` |
+| **Classifier** | Logistic Regression | SVM (`e1071`) |
+| **Visualization** | matplotlib | ElemStatLearn |
+
+### Python Dependencies
+
+```
+numpy
+matplotlib
+pandas
+scikit-learn
+```
+
+### R Dependencies
+
+```r
+caTools
+MASS
+e1071
+ElemStatLearn
+```
+
+## Quick Start
+
+### Python
+
+```bash
+pip install numpy matplotlib pandas scikit-learn
+python lda.py
+```
+
+### R
+
+```r
+# Install packages if needed
+install.packages(c("caTools", "e1071", "ElemStatLearn"))
+
+source("lda.R")
+```
+
+## Dataset
+
+**Wine.csv** — 178 samples, 13 features (Alcohol, Malic Acid, Ash, Magnesium, Phenols, etc.), 3 target classes (`Customer_Segment`). Based on the [UCI Wine dataset](https://archive.ics.uci.edu/ml/datasets/wine).
+
+## License
+
+MIT — see [LICENSE](LICENSE)
+
+## Author
+
+**Kaustabh Ganguly** ([@stabgan](https://github.com/stabgan))
