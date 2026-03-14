@@ -12,7 +12,7 @@ Reduces 13 chemical features of wine samples down to 2 linear discriminants usin
 2. 80/20 train/test split + standard feature scaling
 3. Apply LDA → project onto 2 discriminant components
 4. Train a classifier (Logistic Regression in Python, SVM in R)
-5. Evaluate with a confusion matrix
+5. Evaluate with a confusion matrix + accuracy score
 6. Plot 2D decision boundaries for train and test sets
 
 ## Dataset
@@ -35,40 +35,19 @@ install.packages(c("caTools", "MASS", "e1071", "ElemStatLearn"))
 source("lda.R")
 ```
 
-## Dependencies
+## 🛠 Tech Stack
 
-### Python
-
-```
-numpy
-matplotlib
-pandas
-scikit-learn
-```
-
-### R
-
-```
-caTools
-MASS
-e1071
-ElemStatLearn
-```
-
-## Tech Stack
-
-| | Python | R |
+| | Tool | Purpose |
 |---|---|---|
-| 📄 File | `lda.py` | `lda.R` |
-| 📉 LDA | `sklearn.discriminant_analysis` | `MASS::lda` |
-| 🤖 Classifier | Logistic Regression | SVM (`e1071`) |
-| 📊 Visualization | `matplotlib` | `ElemStatLearn` |
-| 🧮 Data | `pandas` / `numpy` | base R |
+| 🐍 | `scikit-learn` | LDA, Logistic Regression, StandardScaler |
+| 📊 | `matplotlib` | Decision-boundary visualization |
+| 🧮 | `pandas` / `numpy` | Data loading and manipulation |
+| 📈 | `MASS` (R) | LDA implementation |
+| 🤖 | `e1071` (R) | SVM classifier |
 
-## Known Issues
+## ⚠️ Known Issues
 
-- **R: `ElemStatLearn` removed from CRAN** — The `ElemStatLearn` package used for visualization in `lda.R` has been archived on CRAN. Install from archive or use an alternative plotting approach.
-- **R: `caTools` split** — `sample.split` may behave differently across R versions; verify your train/test ratio.
+- **R: `ElemStatLearn` removed from CRAN** — The `ElemStatLearn` package used for visualization in `lda.R` has been archived. Install from the CRAN archive or use an alternative plotting approach.
 
 ## License
 
